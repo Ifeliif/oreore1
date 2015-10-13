@@ -1,0 +1,13 @@
+en:
+  activerecord: 
+    models:
+      tweet: tweet
+    attributes:
+      tweet:
+        content: content
+  msg: 
+    content: content
+    new_tweet: new tweet
+    new_comment: new comment
+    edit: edit
+    delete: delete    

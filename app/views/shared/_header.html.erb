@@ -1,0 +1,15 @@
+<%= image_tag("rails.png", size: "200x80", alt: "Morning Glory"  ) %>
+
+<% if current_user %>
+<p class="user">
+<%= current_user.name %> |
+<%= link_to "ログアウト", :session, method: :delete,data: { confirm: "ログアウトしますか？" } %>
+</p>
+<% end %>
+
+
+<div class="menubar">
+<%= menu_link_to "TOP", root_path %>
+&nbsp; |&nbsp; <%= menu_link_to "ツイート", :tweets %>
+
+</div>

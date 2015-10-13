@@ -1,0 +1,28 @@
+<% if current_user %>
+<p><%= link_to t("msg.new_tweet"), :new_tweet %></p>
+<% end %>
+
+<% @tweets.each do |tweet|%>
+<div id="tweet">
+  <u><h4><%= t("msg.content") %></h4></u>
+  <h3><%= tweet.content %></h3>
+  
+  by <%= tweet.user.name %>
+  
+ <br>
+ <br>
+  <% tweet.comments.each do |comment| %>
+  ---><%= comment.content %>&nbsp; &nbsp; &nbsp; ---by <%= comment.user.name %>
+  <% if current_user && comment.user.name == current_user.name  %>
+  	<%= link_to t("msg.edit"), [:edit, comment] %> &nbsp; |&nbsp; <%= link_to t("msg.delete"), comment, method: :delete, data: { confirm: "本当に削除しますか？" } %>  
+  <% end %>
+  <br><br>
+  <% end %>
+  
+  <%= link_to t("msg.new_comment"), new_comment_path(:tweet_id => tweet.id) %> <br> 
+  <% if current_user && tweet.user_id == current_user.id  %>
+  	<%= link_to t("msg.edit"), [:edit, tweet] %> &nbsp; |&nbsp; <%= link_to t("msg.delete"), tweet, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
+
+</div>
+<% end %>

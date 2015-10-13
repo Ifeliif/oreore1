@@ -1,0 +1,9 @@
+<%= render "shared/login_form" unless current_user %>
+<% if current_user %>
+<% if @log_count %>
+<%= @log_count %>回目のアクセスです。<br>
+<% end %>
+ログイン中<br>
+<% end %>
+<%= link_to "日本語", locale_path(locale: "ja") %><br>
+<%= link_to "English", locale_path(locale: "en") %>

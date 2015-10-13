@@ -1,0 +1,8 @@
+
+<%= form_for Comment.new do |f| %>
+<%= f.label :content %><br>
+<%= f.text_area :content, rows: 10, cols: 45 %><br>
+<%= f.hidden_field :tweet_id, :value => @tweet_id %>
+<%= f.submit %>
+<% end %>
+

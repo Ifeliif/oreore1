@@ -1,0 +1,13 @@
+ja:
+  activerecord: 
+    models:
+      tweet: ツイート
+    attributes:
+      tweet:
+        content: 本文
+  msg:
+    content: 本文
+    new_tweet: 新規ツイート
+    new_comment: 新規コメント
+    edit: 編集
+    delete: 削除

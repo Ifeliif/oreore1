@@ -1,0 +1,10 @@
+<div id="tweet">
+  <u><h4>本文</h4></u>
+  <h3><%= @tweet.content %></h3>
+  by <%=@tweet.user.name%>
+  <% if current_user && @tweet.user.name == current_user.name  %>
+  	<%= link_to "削除", @tweet, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
+  <h3><%= @tweet.content.length %>文字です。</h3>
+  
+</div>
