@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
+  before_action :set_attr
   def show
     
   end
 
   def new
     @tweet_id = params[:tweet_id]
-    p @tweet_id
   end
 
   def update
@@ -33,4 +33,12 @@ class CommentsController < ApplicationController
     @comment.save
     redirect_to :tweets    
   end
+  
+  private
+  def set_attr
+    if current_user
+       @log_count = current_user.count
+    end
+  end
+  
 end

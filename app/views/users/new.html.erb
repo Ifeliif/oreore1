@@ -1,0 +1,20 @@
+
+<%= form_for User.new do |f| %>
+<table class="user">
+<tr>
+	<th><%= f.label :name %></th>
+	<td><%= f.text_field :name %></td>
+</tr>
+	
+<tr>
+	<th><%= f.label :password %></th>
+	<td><%= f.password_field :password %></td>
+</tr>
+<tr>
+	<th><%= f.label :introduction %></th>
+	<td><%= f.text_area :introduction, rows: 10, cols: 45 %></td>
+</tr>
+</table>
+<%= f.submit %>
+<% end %>
+

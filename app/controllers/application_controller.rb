@@ -5,14 +5,13 @@ class ApplicationController < ActionController::Base
   
   before_action :set_locale
   
-
-  
   private
   def current_user
     User.find_by(id: session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
-  
+    
+
   def set_locale
     if %w(ja en).include?(cookies[:locale])
       I18n.locale = cookies[:locale]

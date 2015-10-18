@@ -44,6 +44,7 @@ gem 'rails-i18n', '~> 4.0.1'
 gem 'kaminari', '~> 0.15.1'
 
 
+gem 'whenever', :require => false
 
 group :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'

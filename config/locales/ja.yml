@@ -5,6 +5,10 @@ ja:
     attributes:
       tweet:
         content: 本文
+      user:
+        name: アカウント名
+        password: パスワード
+        introduction: 紹介文
   msg:
     content: 本文
     new_tweet: 新規ツイート

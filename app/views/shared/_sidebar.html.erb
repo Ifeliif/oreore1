@@ -1,9 +1,24 @@
 <%= render "shared/login_form" unless current_user %>
-<% if current_user %>
-<% if @log_count %>
-<%= @log_count %>回目のアクセスです。<br>
-<% end %>
+<% if  current_user  %>
+<p class="user">
 ログイン中<br>
+<% if @log_count %>
+<%= @log_count %>回目のアクセスです。
+<% end %>
+<br><br>
+
+フレンド
+<% current_user.friends.each do |friend| %>
+<li><%= friend.name %></li>
+</p>
+<% end %>
+
+<br><br>
+<% end %>
+
+<% unless current_user %>
+<p><%= link_to "新規会員登録", :new_user %></p><br><br>
 <% end %>
 <%= link_to "日本語", locale_path(locale: "ja") %><br>
 <%= link_to "English", locale_path(locale: "en") %>
+

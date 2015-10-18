@@ -1,11 +1,6 @@
 class TopController < ApplicationController
+  before_action :set_attr
   def index
-    if current_user
-      @log_count = current_user.count
-    end
-#    if current_user = nil && current_user.sign_in != nil
-#      @log_time = Time.now - current_user.sign_in
-#   end
     
   end
 
@@ -19,5 +14,11 @@ class TopController < ApplicationController
     end
   end
   
+  private
+  def set_attr
+    if current_user
+       @log_count = current_user.count
+    end
+  end
   
 end

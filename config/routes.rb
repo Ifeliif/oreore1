@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   get 'comment/show'
 
   get 'comment/new'
@@ -10,10 +12,12 @@ Rails.application.routes.draw do
   get 'comment/destroy'
 
   get 'comment/create'
-
+  
   resources :tweets
   resources :comments
   resource :session, only: [:create, :destroy]
+  resources :users
+  
 
   get 'top/index'
 
