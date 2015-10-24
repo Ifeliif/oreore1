@@ -10,7 +10,7 @@ contents = [
   "Holala" ,
   "Je t'aime ma puce!"  
 ]
-  0.upto(9) do |idx|
+  0.upto(8) do |idx|
     Tweet.create(
       user_id:  users[idx % 4],
       content: contents[idx]

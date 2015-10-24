@@ -4,13 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :set_locale
+  before_action :set_attr
   
   private
   def current_user
     User.find_by(id: session[:user_id]) if session[:user_id]
   end
-  helper_method :current_user
-    
+  helper_method :current_user    
 
   def set_locale
     if %w(ja en).include?(cookies[:locale])
@@ -18,5 +18,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  
+  def set_attr
+    if current_user
+       @log_count =  current_user.count
+    end
+  end
+
 end

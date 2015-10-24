@@ -18,8 +18,11 @@
   <% end %>
   <br><br>
   <% end %>
-  
+
+<% if current_user %>
   <%= link_to t("msg.new_comment"), new_comment_path(:tweet_id => tweet.id) %> <br> 
+<% end %>
+
   <% if current_user && tweet.user_id == current_user.id  %>
   	<%= link_to t("msg.edit"), [:edit, tweet] %> &nbsp; |&nbsp; <%= link_to t("msg.delete"), tweet, method: :delete, data: { confirm: "本当に削除しますか？" } %>
   <% end %>

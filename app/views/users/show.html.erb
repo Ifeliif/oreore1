@@ -1,0 +1,22 @@
+<table class="user">
+<tr>
+	<th>名前</th>
+	<td><%= @user.name %></td>
+</tr>
+<tr>
+	<th>自己紹介</th>
+	<td><%= @user.introduction %></td>
+</tr>
+<tr>
+	<th>Email</th>
+	<td><%= @user.email %></td>
+</tr>
+<tr>
+	<th>誕生日</th>
+	<td><%= @user.birthday.try(:strftime, "%Y年%m月%d日") %></td>
+</tr>
+</table>
+
+<% if current_user && !(Friendship.find_by(from_user_id: current_user, to_user_id: @user)  || Friendship.find_by(from_user_id: @user, to_user_id: current_user)||@user == current_user) %>
+<%= link_to "友達申請" , new_friendship_path(:user_id => @user.id) %>
+<% end %>

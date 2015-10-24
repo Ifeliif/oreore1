@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'friendship/create'
+
+  get 'friendship/new'
+
   get 'users/show'
 
   get 'comment/show'
@@ -17,7 +21,7 @@ Rails.application.routes.draw do
   resources :comments
   resource :session, only: [:create, :destroy]
   resources :users
-  
+  resource :friendship
 
   get 'top/index'
 

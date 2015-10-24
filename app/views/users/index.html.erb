@@ -1,3 +1,14 @@
+<table>
 <% @users.each do |user|%>
-<%= user.name %><br>
+<tr>
+	<td><%= link_to user.name, user %></td>
+	<td>&nbsp; &nbsp; &nbsp;</td>
+	<td>&nbsp; &nbsp; &nbsp;</td>
+	
+	<% if current_user && !(Friendship.find_by(from_user_id: current_user, to_user_id: user)  || Friendship.find_by(from_user_id: user, to_user_id: current_user)||user == current_user) %>
+	<td><%= link_to "友達申請" , new_friendship_path(:user_id => user.id) %></td>
+	<% end %>
+</tr>
 <% end %>
+</table>
+

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_attr
   def index
     @users = User.all
   end
@@ -16,11 +15,8 @@ class UsersController < ApplicationController
     redirect_to :root
   end
   
-  private
-  def set_attr
-    if current_user
-       @log_count = current_user.count
-    end
+  def show
+    @user = User.find(params[:id])
   end
   
 end

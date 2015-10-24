@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017122806) do
+ActiveRecord::Schema.define(version: 20151024062817) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151017122806) do
     t.string   "to_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "friend_flag",  default: 0, null: false
   end
 
   create_table "tweets", force: true do |t|
@@ -46,6 +47,9 @@ ActiveRecord::Schema.define(version: 20151017122806) do
     t.datetime "sign_in"
     t.datetime "sign_out"
     t.text     "introduction"
+    t.string   "email"
+    t.boolean  "admin",           default: false, null: false
+    t.date     "birthday"
   end
 
 end

@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-  before_action :set_attr
   def index
     @tweets = Tweet.all
   end
@@ -36,11 +35,5 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
   end
   
-  private
-  def set_attr
-    if current_user
-       @log_count = current_user.count
-    end
-  end
   
 end

@@ -9,7 +9,7 @@
 
 フレンド
 <% current_user.friends.each do |friend| %>
-<li><%= friend.name %></li>
+<li><%= link_to friend.name, friend %></li>
 </p>
 <% end %>
 
