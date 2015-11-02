@@ -1,6 +1,10 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all
+    if current_user
+    @tweets = Tweet.order(created_at: :desc).all.limit(5)
+   else
+    @tweets = Tweet.order(created_at: :desc).all
+   end
   end
 
   def show

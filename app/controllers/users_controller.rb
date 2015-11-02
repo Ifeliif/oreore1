@@ -19,4 +19,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def search
+    @users = User.where("lower(name) LIKE ? or upper(name) LIKE ? " ,"%#{ params[:q] }%", "%#{ params[:q] }%")
+     render "index"
+  end
 end

@@ -1,0 +1,19 @@
+<table class="user">
+<tr>
+	<th>タイトル</th>
+	<td><%= @book.title %></td>
+</tr>
+<tr>
+	<th>値段</th>
+	<td><%= @book.price %></td>
+</tr>
+<tr>
+	<th>値段</th>
+	<td><%= @book.price %></td>
+</tr>
+
+</table>
+
+<% if current_user %>
+<%= link_to "購入" , new_buying_path(:book_id => @book.id) %>
+<% end %>

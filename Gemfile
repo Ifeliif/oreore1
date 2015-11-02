@@ -43,7 +43,7 @@ gem 'rails-i18n', '~> 4.0.1'
 
 gem 'kaminari', '~> 0.15.1'
 
-
+gem "chartkick"
 gem 'whenever', :require => false
 
 group :test do

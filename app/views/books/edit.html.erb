@@ -1,0 +1,20 @@
+<table>
+	<tr>
+		<td>タイトル</td>
+		<td>価格</td>
+		<td>カテゴリー</td>
+		<td>出版日</td>
+	</tr>
+<%= form_for @book do |f| %>
+	<tr>
+		<td><%= f.text_field :title %></td>
+		<td><%= f.text_field :price %>円</td>
+		<td><%= f.collection_select :category, @book_category, :category, :category %></td>	
+		<td><%= f.date_select :published, start_year: 1940, end_year: Time.now.year, use_month_numbers: true %></td>
+	</tr>
+<% end %>
+		
+<%= f.label :content %><br>
+<br>
+<%= f.submit %>
+<% end %>

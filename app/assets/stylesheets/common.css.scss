@@ -1,13 +1,13 @@
-body{
-	background-color: #ffff33;
+body{	
+	background-image: url(/images/yellow.jpg);
+	background-color: #99d563;
 }
-
 
 div#container{
 	margin: 0 auto;
 	padding-top: 5px;
 	width: 950px;
-	background-color: #99ff33;
+	background-color: #ffeeff;
 }
 
 div#content{
@@ -21,6 +21,7 @@ div#content{
 	}
 	
 }
+
 div#sidebar{
 	float: right;
 	width: 230px;
@@ -31,7 +32,7 @@ div#sidebar{
 div#footer{
 	float: left;
 	width: 700px;
-	background-color: #ffff33;
+	background-color: transparent;
 	padding: 10px 10px 10px 0;
 }
 

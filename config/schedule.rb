@@ -1,8 +1,7 @@
 env :PATH, ENV['PATH']
 set :output, "#{path}/log/cron.log"
 
-every 1.minute do # 毎日5時に実行
-  command "echo 'mossmossmossmossmossmoss'"
+every 4.days do 
   runner "Tasks::AlertTask.execute" # 実行するタスク（lib/tasks/alert_task.rbのexecuteメソッドを実行）
 end
 

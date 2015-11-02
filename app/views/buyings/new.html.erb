@@ -1,0 +1,21 @@
+<table class="user">
+<tr>
+	<th>タイトル</th>
+	<td><%= @book.title %></td>
+</tr>
+<tr>
+	<th>値段</th>
+	<td><%= @book.price %></td>
+</tr>
+
+<%= form_for Buying.new do |f| %>
+<tr>
+	<th>個数</th>
+	<td><%= f.text_field :number %></td>
+</tr>
+<tr>
+<%= f.hidden_field :book_id, :value => @book.id %>
+<td><%= f.submit  '購入'%></td>
+</tr>
+<% end %>
+</table>

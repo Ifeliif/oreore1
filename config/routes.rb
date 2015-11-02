@@ -1,27 +1,35 @@
 Rails.application.routes.draw do
+
+  get 'stat/index'
+
+  get 'books/index'
+
+  get 'books/show'
+
+  get 'books/new'
+
+  get 'books/create'
+  
+  get 'buy' => 'books/buy'
+  
   get 'friendship/create'
 
   get 'friendship/new'
-
-  get 'users/show'
-
-  get 'comment/show'
-
-  get 'comment/new'
-
-  get 'comment/update'
-
-  get 'comment/edit'
-
-  get 'comment/destroy'
-
-  get 'comment/create'
-  
+    
   resources :tweets
   resources :comments
   resource :session, only: [:create, :destroy]
   resources :users
   resource :friendship
+  resources :buyings
+  resources :books do
+    collection do
+      get :edit_multiple
+      put :update_multiple
+    end
+  end
+  
+  post 'users/search'  
 
   get 'top/index'
 
@@ -33,6 +41,9 @@ Rails.application.routes.draw do
   
   get 'locale' => 'top#locale', as: 'locale'
   
+  get 'friendship/accept'
+  
+  get 'friendship/reject'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

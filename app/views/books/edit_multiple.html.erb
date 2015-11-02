@@ -1,0 +1,30 @@
+Edit Multiple
+<%= form_tag update_multiple_books_path, method: :put do %>
+	<% @books.each do |book| %>
+		<%= fields_for "books[]", book do |f| %>
+			<%= form_for book do |f| %>
+			<table>
+				<tr>
+					<td>タイトル</td>
+					<td><%= f.text_field :title %></td>
+				</tr>
+				<tr>
+					<td>価格</td>
+					<td><%= f.text_field :price %>円</td>
+				</tr>
+				<tr>
+					<td>カテゴリー</td>
+					<td><%= f.collection_select :category, @book_category, :category, :category %></td>
+				</tr>
+				<tr>
+					<td>出版日</td>	
+					<td><%= f.date_select :published, start_year: 1940, end_year: Time.now.year, use_month_numbers: true %></td>
+				</tr>
+				<br><br><br>
+				
+			</table>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= submit_tag %>
+<% end %>

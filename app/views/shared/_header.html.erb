@@ -1,5 +1,9 @@
-<%= image_tag("rails.png", size: "200x80", alt: "Morning Glory"  ) %>
-
+<table>
+	<tr>
+		<td><img src="/images/moe.png" /></td>
+		<td><h1>Bonjour!</h1></td>
+	</tr>
+</table>
 <% if current_user %>
 <p class="user">
 <%= current_user.name %> |
@@ -12,5 +16,6 @@
 <%= menu_link_to "TOP", root_path %>
 &nbsp; |&nbsp; <%= menu_link_to "ツイート", :tweets %>
 &nbsp; |&nbsp; <%= menu_link_to "ユーザー", :users %>
-
+&nbsp; |&nbsp; <%= menu_link_to "本屋", :books %>
+&nbsp; |&nbsp; <%= menu_link_to "統計", stat_index_path %>
 </div>

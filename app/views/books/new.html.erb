@@ -1,0 +1,23 @@
+<table class="user">
+<%= form_for Book.new do |f| %>
+<tr>
+	<th>タイトル</th>
+	<td><%= f.text_field :title %></td>
+</tr>
+<tr>
+	<th>値段</th>
+	<td><%= f.text_field :price %></td>
+</tr>
+<tr>
+	<th>出版日</th>
+	<td><%= f.date_select :published, start_year: 1940, end_year: Time.now.year, use_month_numbers: true %></td>
+</tr>
+
+
+
+
+<tr>
+<td><%= f.submit %></td>
+</tr>
+<% end %>
+</table>

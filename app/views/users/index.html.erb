@@ -1,3 +1,7 @@
+<%= form_tag users_search_path do %>
+	<p><%= text_field_tag "q", params[:q] %>
+	<%= submit_tag "検索" %></p>
+<% end %>
 <table>
 <% @users.each do |user|%>
 <tr>

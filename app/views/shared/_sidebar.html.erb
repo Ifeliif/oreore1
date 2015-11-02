@@ -10,9 +10,17 @@
 フレンド
 <% current_user.friends.each do |friend| %>
 <li><%= link_to friend.name, friend %></li>
-</p>
 <% end %>
 
+<br><br>
+フレンド申請中のユーザー
+
+<% current_user.friends_requested.each do |friend_requested| %>
+<li><%= friend_requested.name %></li>
+-><%= link_to("承認", friendship_accept_path(:id => friend_requested.id)) %>| <%= link_to("拒否", friendship_reject_path(:id => friend_requested.id)) %>
+<% end %>
+
+</p>
 <br><br>
 <% end %>
 
