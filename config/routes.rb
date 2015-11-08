@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :line_items
+
+  resources :carts
+
   get 'stat/index'
 
   get 'books/index'
@@ -15,11 +19,18 @@ Rails.application.routes.draw do
   get 'friendship/create'
 
   get 'friendship/new'
-    
-  resources :tweets
+  
+  get 'tweets/index_friends'
+  get 'tweets/index_self'
+  resources :tweets 
+  
   resources :comments
   resource :session, only: [:create, :destroy]
-  resources :users
+  resources :users do
+    collection do
+      get :mypage
+    end
+  end
   resource :friendship
   resources :buyings
   resources :books do

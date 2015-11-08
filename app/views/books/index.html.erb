@@ -1,22 +1,23 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
 <% if current_user  %>
 <%= link_to "新規書籍登録", new_book_path %>
+<br><br>
 <% end %>
-
-<%= form_tag edit_multiple_books_path, method: :get do %>
 <table>
 <tr>
-	<td>購入</td>
 	<td>タイトル</td>
 	<td>値段</td>
+	<td></td>
 </tr>
 <% @books.each do |book| %>
 <tr>
-	<td><%= check_box_tag "book_ids[]", book.id %></td>
 	<td><%= link_to book.title, new_buying_path(:book_id => book.id) %></td>
 	<td><%= book.price %></td>
+	<% if current_user  %>
+	<td><%= button_to "カートに入れる", line_items_path(:book_id => book.id), remote: true %></td>
+	<% end %>
 </tr>
-<% end %>
-<%= submit_tag "check for edit" %>
-
 <% end %>
 </table>

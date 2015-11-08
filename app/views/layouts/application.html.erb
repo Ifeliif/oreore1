@@ -10,14 +10,15 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<%= render "shared/header" %>
+		<div id="header1">
+			<%= render "shared/header1" %>
+		</div>
+		<div id="sidebar">
+			<%= render "shared/header2" %>
+			<%= render "shared/sidebar" %>
 		</div>
 		<div id="content">
 			<%= yield %>
-		</div>
-		<div id="sidebar">
-			<%= render "shared/sidebar" %>
 		</div>
 		<div id="footer">
 			<%= render "shared/footer" %>

@@ -2,6 +2,9 @@
 	<p><%= text_field_tag "q", params[:q] %>
 	<%= submit_tag "検索" %></p>
 <% end %>
+<% unless @search_flag && @search_flag == 1 %>
+<%= paginate @users %>
+<% end %>
 <table>
 <% @users.each do |user|%>
 <tr>

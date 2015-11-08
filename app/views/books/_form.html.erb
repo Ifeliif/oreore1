@@ -1,0 +1,19 @@
+<%= render "shared/errors" , obj: @book %>
+<table class="user">
+<tr>
+	<th>タイトル</th>
+	<td><%= form.text_field :title %></td>
+</tr>
+<tr>
+	<th>値段</th>
+	<td><%= form.text_field :price %></td>
+</tr>
+<tr>
+	<th>出版日</th>
+	<td><%= form.date_select :published, start_year: 1940, end_year: Time.now.year, use_month_numbers: true %></td>
+</tr>
+<tr>
+	<td>カテゴリー</td>
+	<td><%= form.select :category, {"Science" => "Science" , "Politics and Economy" => "Politics and Economy", "Hobby" => "Hobby"} %></td>
+</tr>
+</table>

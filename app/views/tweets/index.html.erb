@@ -1,7 +1,14 @@
 <% if current_user %>
-<p><%= link_to t("msg.new_tweet"), :new_tweet %></p>
+<p>
+<%= link_to t("msg.new_tweet"), :new_tweet %>
+</p>
+<p>
+<%= link_to "みんなのツイート", :tweets %>&nbsp; |&nbsp; 
+<%= link_to "友達のツイート", :tweets_index_friends %>&nbsp; |&nbsp;
+ <%= link_to "自分のツイート", :tweets_index_self %>
+</p>
 <% end %>
-
+<%= paginate @tweets %>
 <% @tweets.each do |tweet|%>
 <div id="tweet">
   <u><h4><%= t("msg.content") %></h4></u>

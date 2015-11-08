@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026122153) do
+ActiveRecord::Schema.define(version: 20151107135043) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 20151026122153) do
     t.datetime "updated_at"
   end
 
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", force: true do |t|
     t.string   "content"
     t.string   "user_id"
@@ -48,6 +53,14 @@ ActiveRecord::Schema.define(version: 20151026122153) do
     t.integer  "friend_flag",  default: 0, null: false
   end
 
+  create_table "line_items", force: true do |t|
+    t.integer  "book_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity",   default: 1
+  end
+
   create_table "tweets", force: true do |t|
     t.integer  "user_id"
     t.text     "content"
@@ -56,6 +69,14 @@ ActiveRecord::Schema.define(version: 20151026122153) do
   end
 
   add_index "tweets", ["user_id"], name: "index_tweets_on_user_id", using: :btree
+
+  create_table "user_images", force: true do |t|
+    t.integer  "user_id",      null: false
+    t.binary   "data"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

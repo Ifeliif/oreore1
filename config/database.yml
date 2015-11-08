@@ -48,7 +48,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: oreore1_production
-  username: oreore1
-  password: <%= ENV['OREORE1_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  username: sqale_7e04305d5b
+  password: 0e3524f2625256d3cc2762eb53428affdd9cc1d08445c4b7
+  database: sqale_7e04305d5b
+  host: mysql001.sqale.jp
+
+

@@ -11,6 +11,13 @@ class User < ActiveRecord::Base
   has_many :friends_requesting, -> { where(friendships: { friend_flag: 0}) }, :through => :friendships_of_from_user, :source => :to_user
   has_many :friends_requested, -> { where(friendships: { friend_flag: 0}) }, :through => :friendships_of_to_user, :source => :from_user
   
+  has_one :image, class_name: "UserImage", dependent: :destroy
+  accepts_nested_attributes_for :image, allow_destroy: true
+  
+  validates :name, presence: true
+  
+  
+
 
   def friends
        friends_of_from_user + friends_of_to_user

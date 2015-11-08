@@ -1,9 +1,8 @@
-Edit Multiple
+
 <%= form_tag update_multiple_books_path, method: :put do %>
 	<% @books.each do |book| %>
 		<%= fields_for "books[]", book do |f| %>
-			<%= form_for book do |f| %>
-			<table>
+		<table>
 				<tr>
 					<td>タイトル</td>
 					<td><%= f.text_field :title %></td>
@@ -20,11 +19,11 @@ Edit Multiple
 					<td>出版日</td>	
 					<td><%= f.date_select :published, start_year: 1940, end_year: Time.now.year, use_month_numbers: true %></td>
 				</tr>
-				<br><br><br>
-				
-			</table>
-			<% end %>
+
+		</table>
 		<% end %>
+		<br>		
 	<% end %>
-	<%= submit_tag %>
+<br>
+<%= submit_tag "変更を保存" %>
 <% end %>

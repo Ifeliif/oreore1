@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  # -*- encoding: utf-8 -*-
   protect_from_forgery with: :exception
   
   before_action :set_locale
@@ -22,6 +23,16 @@ class ApplicationController < ActionController::Base
     if current_user
        @log_count =  current_user.count
     end
+    if current_cart
+      @cart = current_cart
+    end
   end
-
+  
+  def current_cart
+    Cart.find(session[:cart_id])
+  rescue ActiveRecord::RecordNotFound
+    cart = Cart.create
+    session[:cart_id] = cart.id
+    cart
+  end
 end

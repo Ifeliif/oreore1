@@ -1,0 +1,9 @@
+<h2>カート</h2>
+<table>
+	<%= render(@cart.line_items) %>
+	<tr>
+		<td>合計</td>
+		<td><%= number_to_currency(@cart.total_price) %></td>
+	</tr>
+</table>
+<%= button_to 'カートを空にする', @cart, method: :delete, confirm: 'Are you sure?' %>

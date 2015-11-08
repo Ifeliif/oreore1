@@ -12,17 +12,19 @@ intros = ["Je m'appele Taro, je suis étudiant .",
 
 birthday =["1990-12-21","1989-10-17","1967-06-15","1990-10-08"]
 
-  0.upto(8) do |idx|
-    User.create(
-      name: names[idx],
+  0.upto(100) do |idx|
+    user = User.create(
+      name: names[idx%9]+idx.to_s,
       password: "password",
-      introduction: intros[idx],
+      introduction: intros[idx%9],
       birthday:birthday[idx%4],
       admin: idx%2,
       email: "ifelifff@yahoo.co.jp"
     )
+    path = Rails.root.join("db/seeds/development/images", "user#{idx%7 +1}.jpg")
+    file = Rack::Test::UploadedFile.new(path, "image/jpeg", true)
+    UserImage.create(user: user, uploaded_image: file)
 
   end
-    
-    
-    
+  
+  

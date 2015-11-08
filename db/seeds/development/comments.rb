@@ -1,24 +1,61 @@
-users = %w{ 1 2 3 4}
-tweets = %w{ 2 1 4 3 5 }
-contents = [
-  "Salut, ça va ?" ,
-  "Je suis chez moi." ,
-  "On n'a pas de temps" ,
-  "On fait quoi ?", 
-  "C'est n'importe quoi!" ,
-  "Et en plus, je suis ingénieur." ,
-  "J'y vais." ,
-  "Holala" ,
-  "Je t'aime ma puce!"  
-]
-  0.upto(8) do |idx|
-    Comment.create(
-      user_id:  users[idx % 4],
-      tweet_id: tweets[idx % 5],
-      content: contents[idx]
-    )
+  contents = [
+    "Salut, ça va ?" ,
+    "Je suis chez moi." ,
+    "On n'a pas de temps" ,
+    "On fait quoi ?", 
+    "C'est n'importe quoi!" ,
+    "Et en plus, je suis ingénieur." ,
+    "J'y vais." ,
+    "Holala" ,
+    "Je t'aime ma puce!",
+    "Salut, ça va ?" ,
+    "Je suis chez moi." ,
+    "On n'a pas de temps" ,
+    "On fait quoi ?", 
+    "C'est n'importe quoi!" ,
+    "Et en plus, je suis ingénieur." ,
+    "J'y vais." ,
+    "Holala" ,
+    "Je t'aime ma puce!",
+    "Je suis vraiment fatigué.... Mais je bois du café. " ,
+    "J'ai envie de rester tout seul. " ,
+    "Alors on y va ?" ,
+    "Je suis pas connard.", 
+    "Je vais sortir avec une fille." ,
+    "Et en plus, je suis ingénieur." ,
+    "Je vais sortir avec une fille." ,
+    "Holala" ,
+    "Je t'aime ma puce!" ,
+    "日本語を勉強しています。",
+    "I don't understand French or Japanese.",
+    "夏目漱石が好き。",
+    "うちの会社はかっこいい。",
+    "I made a serious mistake.",
+    "Je ne sais pas ce qu'on va faire.",
+    "Hello Everybody!",
+    "Nice to meet you.",
+    "May I ask your name?",
+    "I'm alright.",
+    "I'm diying.",
+    "I'm great, I got the present from my Mum!",
+    "I'm terrible, I drunk too much yesterday.",
+    "何が違うんですか？",
+    "どうでしたか？",
+    "I don’t care.",
+    "寝てたい。",
+    "面倒なことが好きではない。",
+    "時間を大切にしたい。",
+    "みんなのことが好き！",
+    "ありのままに",
+    "Moi, moi, moi!",
+    "Ils sont fous!"   
+  ]
+    0.upto(100) do |idx|
+      Comment.create(
+        user_id:  rand(1..90),
+        tweet_id: rand(1..90),
+        content: contents[idx%45]
+      )
 
-  end
-    
-    
+    end    
     

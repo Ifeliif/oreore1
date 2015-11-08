@@ -38,7 +38,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'therubyracer', platforms: :ruby
 gem 'bcrypt'
-gem 'nokogiri', '~> 1.6.1'
+# gem 'nokogiri', '~> 1.6.1'
 gem 'rails-i18n', '~> 4.0.1'
 
 gem 'kaminari', '~> 0.15.1'

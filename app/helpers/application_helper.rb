@@ -9,4 +9,13 @@ module ApplicationHelper
     link_to_unless_current(text, path) { content_tag(:span, text) }
   end
   
+  def user_image_tag(user, options = {})
+    if user.image.present?
+      path = user_path(user, format: user.image.extension)
+      link_to(image_tag(path, {alt: user.name }.merge(options)) , path)
+    else
+      ""
+    end
+  end
+  
 end
